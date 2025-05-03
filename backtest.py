@@ -93,7 +93,10 @@ def main():
     plt.savefig('results.png')
 
 
-
+'''
+Searches all feasible venue splits to minimize total cost 
+using the static allocator from the paper.
+'''
 
 # As per the pseudocode 
 def allocate(order_size, venues, lo, lu, theta):
@@ -117,6 +120,11 @@ def allocate(order_size, venues, lo, lu, theta):
             best_cost = cost
             best_split = alloc
     return best_split, best_cost
+
+'''
+Uses Cont & Kukanov's static cost model
+including fees, rebates, under/overfill, and queue risk penalties.
+'''
 
 # As per the pseudocode 
 def compute_cost(split, venues, order_size, lo, lu, theta):
@@ -159,6 +167,12 @@ def backtest(order_size, lo, lu, theta, snapshots):
         cumulative_cost.append(cash_spent)
     return cash_spent, total_filled, cumulative_cost
 
+''' 
+Baseline strategy that fills from the venue 
+with the lowest ask price at each snapshot 
+(naïve market order).
+'''
+
 def best_ask_baseline(order_size, snapshots):
     remaining = order_size
     cash_spent = 0
@@ -171,6 +185,10 @@ def best_ask_baseline(order_size, snapshots):
         remaining -= fill
     return cash_spent, order_size - remaining
 
+'''
+Baseline that evenly splits order across fixed time intervals, 
+executing at best price per chunk.
+'''
 def twap_baseline(order_size, snapshots, interval_secs=60):
     ts_keys = sorted(snapshots.keys())
     split_count = max(1, int(len(ts_keys) * 0.5 / interval_secs))
@@ -190,6 +208,11 @@ def twap_baseline(order_size, snapshots, interval_secs=60):
                 break
     return cash_spent, total_filled
 
+
+'''
+Baseline that fills in proportion to displayed size, 
+weighted by venue ask prices (volume-weighted execution).
+'''
 def vwap_baseline(order_size, snapshots):
     px_qty = []
     for venues in snapshots:
@@ -206,6 +229,9 @@ def vwap_baseline(order_size, snapshots):
             break
     return cash_spent, order_size - remaining
 
+'''
+Computes savings over a baseline in basis points.
+'''
 def bps_savings(base, optimized):
     return 10000 * (base - optimized) / base
 
