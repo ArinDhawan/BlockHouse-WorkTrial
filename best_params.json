@@ -1,0 +1,28 @@
+{
+  "best_params": {
+    "lambda_over": 0.01,
+    "lambda_under": 0.01,
+    "theta_queue": 0.001
+  },
+  "optimized": {
+    "cash_spent": 1113727.0,
+    "avg_price": 222.7454
+  },
+  "best_ask": {
+    "cash_spent": 1114112.2799999998,
+    "avg_price": 222.82245599999996
+  },
+  "twap": {
+    "cash_spent": 1103711.0760000006,
+    "avg_price": 223.0620606305579
+  },
+  "vwap": {
+    "cash_spent": 1112854.3999999994,
+    "avg_price": 222.57087999999987
+  },
+  "savings_vs_baselines_bps": {
+    "best_ask": 3.4581792779431098,
+    "twap": -90.7476985398977,
+    "vwap": -7.8410976314651695
+  }
+}

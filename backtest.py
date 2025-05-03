@@ -77,7 +77,7 @@ def main():
         }
     }
 
-    with open('best_params2.json', 'w') as f:
+    with open('best_params.json', 'w') as f:
         json.dump(res, f, indent=2)
     print(json.dumps(res, indent=2))
 
@@ -90,7 +90,7 @@ def main():
     plt.title('Cumulative Cost Over Time')
     plt.grid(True)
     plt.tight_layout()
-    plt.savefig('results2.png')
+    plt.savefig('results.png')
 
 
 
