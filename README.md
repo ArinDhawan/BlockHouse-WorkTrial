@@ -2,7 +2,7 @@
 
 ## Smart Order Router – Cont & Kukanov Backtest
 
-This my submission for the BlockHouse Work Trial. First off all, I want to acknoledge the team @BlockHouse. This trial was majorly based on Cont & Kukanov's paper *“Optimal Order Placement in Limit Order Markets.”*, which implements a a backtest for the static Smart Order Routing algorithm (2013). The script evaluates an optimal split of a 5,000-share buy order across multiple venues and benchmarks its performance against different strategies. 
+This my submission for the BlockHouse Work Trial. First off all, I want to acknoledge the team @BlockHouse. This trial was majorly based on Cont & Kukanov's paper *“Optimal Order Placement in Limit Order Markets.”*, which implements a backtest for the static Smart Order Routing algorithm (2013). The script evaluates an optimal split of a 5,000-share buy order across multiple venues and benchmarks its performance against different strategies. 
 
 ## 🔍 Approach
 
